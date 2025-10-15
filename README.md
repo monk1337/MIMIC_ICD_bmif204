@@ -96,11 +96,30 @@ Each CSV contains:
 - `labels`: Semicolon-separated ICD-10 codes
 - `length`: Token count
 
+
+## Dataset Format
+
+### Sample Record
+```csv
+subject_id,hadm_id,text,labels,length
+10000032,22595853,"name ___ unit no ___ admission date ___ discharge date ___ date of birth ___ sex m service medicine allergies patient recorded as having no known allergies to drugs attending ___ chief complaint hepatic encephalopathy major surgical or invasive procedure none history of present illness mr ___ is a ___ year old male with alcoholic cirrhosis with known esophageal varices and portal hypertensive gastropathy who presented with hepatic encephalopathy...",J189;I129;G4700;E785;I10,1847
+```
+
+### Field Descriptions
+
+| Field | Description | Example |
+|-------|-------------|---------|
+| `subject_id` | Patient identifier | 10000032 |
+| `hadm_id` | Hospital admission ID | 22595853 |
+| `text` | Preprocessed discharge summary (tokenized, lowercase, alphanumeric only) | "name ___ unit no ___ admission..." |
+| `labels` | Semicolon-separated ICD-10 codes | "J189;I129;G4700;E785;I10" |
+| `length` | Number of tokens in text | 1847 |
+
 ## Troubleshooting
 
-**"discharge.csv not found"**: Download from MIMIC-IV-Note (separate dataset)
-**Memory errors**: Need 16GB+ RAM or increase swap space
-**"Error" during splitting**: Expected for unmapped HADM_IDs, ignore
+- **"discharge.csv not found"**: Download from MIMIC-IV-Note (separate dataset)
+- **Memory errors**: Need 16GB+ RAM or increase swap space
+- **"Error" during splitting**: Expected for unmapped HADM_IDs, ignore
 
 # Preprocessed data
 https://hu-my.sharepoint.com/:f:/g/personal/ankit_pal_fas_harvard_edu/EmA0M9hp1p5ArHXWMtc7slABml3BdFs0eBV4EfDgEPu0kg?e=Wxjbh0
