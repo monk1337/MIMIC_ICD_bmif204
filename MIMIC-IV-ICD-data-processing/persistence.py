@@ -16,6 +16,22 @@ def save_metrics(metrics_hist_all, model_dir):
         data = metrics_hist_all[0].copy()
         data.update({"%s_te" % (name):val for (name,val) in metrics_hist_all[1].items()})
         data.update({"%s_tr" % (name):val for (name,val) in metrics_hist_all[2].items()})
+        
+        # Convert numpy types to Python native types for JSON serialization
+        def convert_to_serializable(obj):
+            if isinstance(obj, np.integer):
+                return int(obj)
+            elif isinstance(obj, np.floating):
+                return float(obj)
+            elif isinstance(obj, np.ndarray):
+                return obj.tolist()
+            elif isinstance(obj, dict):
+                return {k: convert_to_serializable(v) for k, v in obj.items()}
+            elif isinstance(obj, list):
+                return [convert_to_serializable(item) for item in obj]
+            return obj
+        
+        data = convert_to_serializable(data)
         json.dump(data, metrics_file, indent=1)
 
 def save_params_dict(params):
