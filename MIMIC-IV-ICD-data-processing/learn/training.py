@@ -250,41 +250,41 @@ def test(model, Y, epoch, data_path, fold, gpu, version, code_inds, dicts, sampl
 
     model.eval()
     gen = datasets.data_generator(filename, dicts, 1, num_labels, version=version, desc_embed=desc_embed)
-    for batch_idx, tup in tqdm(enumerate(gen)):
-        data, target, hadm_ids, _, descs = tup
-        data, target = Variable(torch.LongTensor(data), volatile=True), Variable(torch.FloatTensor(target))
-        if gpu:
-            if torch.cuda.is_available():
-                data = data.cuda()
-                target = target.cuda()
-            elif torch.backends.mps.is_available():
-                data = data.to('mps')
-                target = target.to('mps')
-            # target = target.cuda()
-        model.zero_grad()
+    with torch.no_grad():
+        for batch_idx, tup in tqdm(enumerate(gen)):
+            data, target, hadm_ids, _, descs = tup
+            data, target = Variable(torch.LongTensor(data)), Variable(torch.FloatTensor(target))
+            if gpu:
+                if torch.cuda.is_available():
+                    data = data.cuda()
+                    target = target.cuda()
+                elif torch.backends.mps.is_available():
+                    data = data.to('mps')
+                    target = target.to('mps')
+            model.zero_grad()
 
-        if desc_embed:
-            desc_data = descs
-        else:
-            desc_data = None
+            if desc_embed:
+                desc_data = descs
+            else:
+                desc_data = None
 
-        #get an attention sample for 2% of batches
-        get_attn = samples and (np.random.rand() < 0.02 or (fold == 'test' and testing))
-        output, loss, alpha = model(data, target, desc_data=desc_data, get_attention=get_attn)
+            #get an attention sample for 2% of batches
+            get_attn = samples and (np.random.rand() < 0.02 or (fold == 'test' and testing))
+            output, loss, alpha = model(data, target, desc_data=desc_data, get_attention=get_attn)
 
-        output = F.sigmoid(output)
-        output = output.data.cpu().numpy()
-        losses.append(loss.item())
-        target_data = target.data.cpu().numpy()
-        if get_attn and samples:
-            interpret.save_samples(data, output, target_data, alpha, window_size, epoch, tp_file, fp_file, dicts=dicts)
+            output = F.sigmoid(output)
+            output = output.data.cpu().numpy()
+            losses.append(loss.item())
+            target_data = target.data.cpu().numpy()
+            if get_attn and samples:
+                interpret.save_samples(data, output, target_data, alpha, window_size, tp_file, fp_file, dicts=dicts)
 
-        #save predictions, target, hadm ids
-        yhat_raw.append(output)
-        output = np.round(output)
-        y.append(target_data)
-        yhat.append(output)
-        hids.extend(hadm_ids)
+            #save predictions, target, hadm ids
+            yhat_raw.append(output)
+            output = np.round(output)
+            y.append(target_data)
+            yhat.append(output)
+            hids.extend(hadm_ids)
 
     #close files if needed
     if samples:
