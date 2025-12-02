@@ -200,5 +200,3 @@ The app automatically maps folder names to display names:
 - **chartjs-plugin-datalabels** - Data labels on charts
 
 ## 🎉 Enjoy!
-
-Your beautiful model comparison dashboard is ready to use. Click around, explore the visualizations, and share with your team!
