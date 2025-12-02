@@ -1,0 +1,22 @@
+# Ensemble Arbiter Configuration
+
+# Input Models
+cnn_predictions: results/cnn/predictions.csv
+llm_predictions: results/llm_eval/gpt_4o_predictions.csv
+
+# Arbiter LLM
+arbiter_model: gpt-4o
+arbiter_temperature: 0.1
+max_tokens: 3000
+
+# Knowledge Graph
+kg_path: data/icd10_kg/
+validate_codes: true
+enrich_hierarchy: true
+
+# Output
+output_dir: results/ensemble/
+save_responses: true
+
+# Reproducibility
+seed: 42

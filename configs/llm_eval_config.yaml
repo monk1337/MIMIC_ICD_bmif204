@@ -1,0 +1,403 @@
+# LLM Evaluation Configuration
+# Add your API keys to environment variables
+
+models:
+  # ========== OpenAI GPT-5 Series (Latest) ==========
+  - name: gpt-5
+    model: openai/gpt-5
+    api_key_env: OPENAI_API_KEY
+    temperature: 1.0  # GPT-5 models have fixed temperature
+    max_tokens: 2000
+    enabled: false  # Disabled - no API key
+    
+  - name: gpt-5-mini
+    model: openai/gpt-5-mini
+    api_key_env: OPENAI_API_KEY
+    temperature: 1.0  # GPT-5 models have fixed temperature
+    max_tokens: 2000
+    enabled: false  # Disabled - no API key
+    
+  - name: gpt-5-nano
+    model: openai/gpt-5-nano
+    api_key_env: OPENAI_API_KEY
+    temperature: 1.0  # GPT-5 models have fixed temperature
+    max_tokens: 2000
+    enabled: false
+    
+  - name: gpt-5-chat
+    model: openai/gpt-5-chat
+    api_key_env: OPENAI_API_KEY
+    temperature: 1.0  # GPT-5 models have fixed temperature
+    max_tokens: 2000
+    enabled: false
+    
+  - name: gpt-5-pro
+    model: openai/gpt-5-pro
+    api_key_env: OPENAI_API_KEY
+    temperature: 1.0  # GPT-5 models have fixed temperature
+    max_tokens: 2000
+    enabled: false  # Most expensive, use sparingly
+  
+  # ========== OpenAI GPT-4.1 Series ==========
+  - name: gpt-4.1
+    model: openai/gpt-4.1
+    api_key_env: OPENAI_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: false
+    
+  - name: gpt-4.1-mini
+    model: openai/gpt-4.1-mini
+    api_key_env: OPENAI_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: false
+    
+  # ========== OpenAI o-Series (Reasoning Models) ==========
+  - name: o4-mini
+    model: openai/o4-mini
+    api_key_env: OPENAI_API_KEY
+    temperature: 1.0  # Reasoning models have fixed temperature
+    max_tokens: 2000
+    enabled: false
+    
+  - name: o3
+    model: openai/o3
+    api_key_env: OPENAI_API_KEY
+    temperature: 1.0
+    max_tokens: 2000
+    enabled: false
+    
+  - name: o3-mini
+    model: openai/o3-mini
+    api_key_env: OPENAI_API_KEY
+    temperature: 1.0
+    max_tokens: 2000
+    enabled: true
+    
+  - name: o1-preview
+    model: openai/o1-preview
+    api_key_env: OPENAI_API_KEY
+    temperature: 1.0
+    max_tokens: 2000
+    enabled: false
+    
+  - name: o1-mini
+    model: openai/o1-mini
+    api_key_env: OPENAI_API_KEY
+    temperature: 1.0
+    max_tokens: 2000
+    enabled: true
+  
+  # ========== OpenAI GPT-4o Series ==========
+  - name: gpt-4o
+    model: openai/gpt-4o
+    api_key_env: OPENAI_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: true
+    
+  - name: gpt-4o-mini
+    model: openai/gpt-4o-mini
+    api_key_env: OPENAI_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: true
+    
+  - name: gpt-4o-2024-08-06
+    model: openai/gpt-4o-2024-08-06
+    api_key_env: OPENAI_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: false
+  
+  # ========== OpenAI GPT-4 Series ==========
+  - name: gpt-4-turbo
+    model: openai/gpt-4-turbo
+    api_key_env: OPENAI_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: false
+    
+  - name: gpt-4
+    model: openai/gpt-4
+    api_key_env: OPENAI_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: false
+    
+  - name: gpt-4-0125-preview
+    model: openai/gpt-4-0125-preview
+    api_key_env: OPENAI_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: false
+  
+  # ========== OpenAI GPT-3.5 Series ==========
+  - name: gpt-3.5-turbo
+    model: openai/gpt-3.5-turbo
+    api_key_env: OPENAI_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: false
+    
+  - name: gpt-3.5-turbo-1106
+    model: openai/gpt-3.5-turbo-1106
+    api_key_env: OPENAI_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: false
+    
+  # ========== Anthropic Claude 4 Series (Latest) ==========
+  - name: claude-sonnet-4.5
+    model: anthropic/claude-sonnet-4-5-20250929
+    api_key_env: 
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: true
+    
+  - name: claude-haiku-4.5
+    model: anthropic/claude-haiku-4-5
+    api_key_env: 
+    temperature: 0.0
+    max_tokens: 1000
+    enabled: true  # Fast and cost-effective
+    
+  - name: claude-opus-4.1
+    model: anthropic/claude-opus-4-1-20250805
+    api_key_env: ANTHROPIC_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: false
+    
+  - name: claude-opus-4
+    model: anthropic/claude-opus-4-20250514
+    api_key_env: ANTHROPIC_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: false  # Most expensive
+    
+  - name: claude-sonnet-4
+    model: anthropic/claude-sonnet-4-20250514
+    api_key_env: ANTHROPIC_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: false
+  
+  # ========== Anthropic Claude 3.7 Series ==========
+  - name: claude-3.7-sonnet
+    model: anthropic/claude-3-7-sonnet-20250219
+    api_key_env: ANTHROPIC_API_KEY
+    temperature: 1.0  # Must be 1.0 when thinking is enabled
+    max_tokens: 2000
+    enabled: true
+    reasoning_effort: low  # Supports thinking/reasoning
+  
+  # ========== Anthropic Claude 3.5 Series ==========
+  - name: claude-3.5-sonnet
+    model: anthropic/claude-3-5-sonnet-latest
+    api_key_env: ANTHROPIC_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: true
+  
+  # ========== Anthropic Claude 3 Series ==========
+  - name: claude-3-opus
+    model: anthropic/claude-3-opus-20240229
+    api_key_env: ANTHROPIC_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: true
+    
+  - name: claude-3-sonnet
+    model: anthropic/claude-3-sonnet-20240229
+    api_key_env: ANTHROPIC_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: false
+    
+  - name: claude-3-haiku
+    model: anthropic/claude-3-haiku-20240307
+    api_key_env: ANTHROPIC_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: true
+  
+  # ========== Anthropic Claude 2 Series ==========
+  - name: claude-2.1
+    model: anthropic/claude-2.1
+    api_key_env: ANTHROPIC_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: false
+    
+  - name: claude-2
+    model: anthropic/claude-2
+    api_key_env: ANTHROPIC_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: false
+  
+  # ========== Anthropic Claude Instant Series ==========
+  - name: claude-instant-1.2
+    model: anthropic/claude-instant-1.2
+    api_key_env: ANTHROPIC_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: false
+    
+  - name: claude-instant-1
+    model: anthropic/claude-instant-1
+    api_key_env: ANTHROPIC_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: false
+    
+  # Google AI Models
+  - name: gemini-2.0-flash
+    model: gemini/gemini-2.0-flash
+    api_key_env: GEMINI_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: true
+    
+  - name: gemini-1.5-pro
+    model: gemini/gemini-1.5-pro
+    api_key_env: GEMINI_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: true
+    
+  - name: gemini-2.5-flash
+    model: gemini/gemini-2.5-flash-preview-04-17
+    api_key_env: GEMINI_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: true
+    reasoning_effort: low  # Supports reasoning
+    
+  # xAI Models
+  - name: grok-3-mini
+    model: xai/grok-3-mini-beta
+    api_key_env: XAI_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: true
+    reasoning_effort: low  # Supports reasoning
+    
+  # DeepSeek Models
+  - name: deepseek-chat
+    model: deepseek/deepseek-chat
+    api_key_env: DEEPSEEK_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: true
+    
+  - name: deepseek-reasoner
+    model: deepseek/deepseek-reasoner
+    api_key_env: DEEPSEEK_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: true
+    reasoning_effort: low  # Reasoning model
+    
+  # Nebius AI Studio
+  - name: deepseek-v3-nebius
+    model: openai/deepseek-ai/DeepSeek-V3-0324  # Use openai/ for OpenAI-compatible endpoints
+    api_key_env: NEBIUS_API_KEY
+    api_base: https://api.tokenfactory.nebius.com/v1
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: true
+    
+  - name: qwen-30b-nebius
+    model: openai/Qwen/Qwen3-30B-A3B-Instruct-2507  # Qwen 30B via Nebius
+    api_key_env: NEBIUS_API_KEY
+    api_base: https://api.tokenfactory.nebius.com/v1
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: true
+    
+  - name: qwen-235b
+    model: nebius/Qwen/Qwen3-235B-A22B
+    api_key_env: NEBIUS_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: true
+    
+  - name: qwen-2.5-72b
+    model: nebius/Qwen/Qwen2.5-72B-Instruct
+    api_key_env: NEBIUS_API_KEY
+    temperature: 0.0
+    max_tokens: 2000
+    enabled: true
+
+# Evaluation Settings
+evaluation:
+  # Sample file
+  sample_file: llm_eval_900_enriched.csv
+  
+  # Output directory
+  output_dir: llm_eval_results_900
+  
+  # Request settings
+  request_timeout: 120  # seconds
+  max_retries: 3
+  retry_delay: 2  # seconds
+  
+  # Logging
+  log_level: INFO
+  save_logs: true
+  log_file: llm_evaluation.log
+  
+  # Cost tracking
+  track_costs: true
+  
+  # Interesting cases thresholds
+  interesting_cases:
+    min_precision: 0.7  # Good predictions
+    max_precision: 0.3  # Bad predictions
+    unique_codes: true  # Cases with rare codes
+    max_cases_per_category: 10
+
+# Prompt Configuration
+prompt:
+  system_message: |
+    You are an expert medical coder specializing in ICD-10-CM diagnosis codes.
+    Your task is to analyze clinical discharge summaries and assign the appropriate ICD-10 codes.
+    
+    Important:
+    1. Only assign codes that are directly supported by the clinical text
+    2. Consider all relevant diagnoses, procedures, and conditions mentioned
+    3. Use the most specific codes available
+    4. For each code, provide a brief reasoning (1-2 sentences) explaining why you assigned it
+    
+  user_message_template: |
+    Please analyze the following discharge summary and assign ICD-10 codes.
+    
+    DISCHARGE SUMMARY:
+    {text}
+    
+    For each ICD-10 code you assign, provide:
+    1. The code (e.g., I10, E11.9)
+    2. Brief reasoning: Why did you assign this code? What specific text supported it?
+    
+    Format your response as JSON:
+    {{
+      "codes": [
+        {{"code": "I10", "reasoning": "Patient has documented hypertension mentioned in history"}},
+        {{"code": "E11.9", "reasoning": "Type 2 diabetes without complications noted in diagnosis"}}
+      ]
+    }}
+    
+  response_format: json_object
+  
+# Metrics to calculate
+metrics:
+  - exact_match
+  - precision
+  - recall
+  - f1_score
+  - jaccard_similarity
+  - codes_predicted_count
+  - codes_actual_count

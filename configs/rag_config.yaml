@@ -1,0 +1,28 @@
+# RAG Pipeline Configuration
+
+# NER Extraction
+ner_model: gpt-4o
+ner_temperature: 0.0
+
+# Vector Retrieval
+embedding_model: text-embedding-3-small
+similarity_top_k: 10
+rerank_top_n: 5
+vector_index_path: icd10_vector_index/
+
+# LLM Prediction
+prediction_model: gpt-4o
+prediction_temperature: 0.1
+max_tokens: 2000
+
+# Knowledge Graph
+kg_path: data/icd10_kg/
+include_hierarchy: true
+
+# Evaluation
+eval_file: llm_eval_900_enriched.csv
+rare_codes_only: true
+output_dir: results/rag/
+
+# Reproducibility
+seed: 42

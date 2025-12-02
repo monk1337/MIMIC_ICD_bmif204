@@ -1,0 +1,208 @@
+.chart-view {
+  min-height: 100vh;
+  background-color: #f5f7fa;
+  padding: 40px 20px;
+}
+
+.chart-header {
+  max-width: 1400px;
+  margin: 0 auto 20px;
+}
+
+.back-button {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: #5568d3;
+  transform: translateX(-4px);
+}
+
+.chart-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  position: relative;
+  display: flex;
+  gap: 30px;
+}
+
+.chart-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.model-selector {
+  width: 250px;
+  flex-shrink: 0;
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+.model-selector h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.model-checkbox-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.model-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.model-checkbox-item:hover {
+  background: #e2e8f0;
+}
+
+.model-checkbox-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #667eea;
+}
+
+.model-checkbox-item label {
+  font-size: 14px;
+  color: #4a5568;
+  cursor: pointer;
+  flex: 1;
+  user-select: none;
+}
+
+.model-selector-actions {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  gap: 8px;
+}
+
+.selector-btn {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.selector-btn-all {
+  background: #667eea;
+  color: white;
+}
+
+.selector-btn-all:hover {
+  background: #5568d3;
+}
+
+.selector-btn-none {
+  background: #e2e8f0;
+  color: #4a5568;
+}
+
+.selector-btn-none:hover {
+  background: #cbd5e0;
+}
+
+.chart-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+
+.chart-wrapper {
+  height: 650px;
+  position: relative;
+}
+
+.loading-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 600px;
+}
+
+.loading-chart .spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #e0e0e0;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-chart p {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #718096;
+}
+
+@media (max-width: 768px) {
+  .chart-view {
+    padding: 20px 10px;
+  }
+
+  .chart-container {
+    padding: 20px;
+  }
+
+  .chart-header h2 {
+    font-size: 28px;
+  }
+
+  .chart-description {
+    font-size: 16px;
+  }
+
+  .chart-wrapper {
+    height: 400px;
+  }
+
+  .logos-container {
+    height: 60px;
+  }
+
+  .model-logo {
+    width: 40px;
+    height: 40px;
+  }
+}

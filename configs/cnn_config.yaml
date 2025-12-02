@@ -1,0 +1,31 @@
+# CNN Training Configuration
+# Train Convolutional Attention Model (CAML) for ICD-10 Coding
+
+model: conv_attn
+Y: full  # Train on all ICD-10 codes
+
+# Training Parameters
+n_epochs: 50
+batch_size: 16
+learning_rate: 0.001
+dropout: 0.5
+patience: 5  # Early stopping patience
+criterion: f1_micro
+
+# Model Architecture
+embed_size: 100
+num_filter_maps: 50
+filter_size: 4
+
+# Data
+max_length: 2500  # Max tokens
+vocab_min: 3
+
+# Paths
+data_path: data/mimic4_icd10/train_full.csv
+vocab_path: data/mimic4_icd10/vocab.csv
+model_dir: models/
+
+# Reproducibility
+seed: 42
+gpu: true
