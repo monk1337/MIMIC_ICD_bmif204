@@ -55,6 +55,40 @@ bmif_full_model/
 
 ---
 
+## 🔬 Evaluated Approaches
+
+We compared four distinct approaches across three paradigms:
+
+### 1. Zero-Shot Large Language Models
+Seven state-of-the-art LLMs (GPT-4o, GPT-5 Mini, Claude 3.7 Sonnet, Claude 4.5 Haiku, Gemini 2.0 Flash, Qwen 30B, DeepSeek V3) with identical prompts. No training examples or fine-tuning.
+
+### 2. Convolutional Attention Network (CAML)
+- 100-dim word embeddings, 50 conv filters (kernel size 4)
+- Label-specific attention for ~27,000 ICD-10 codes
+- Trained 40 epochs (~10-12 hours on A100 GPU)
+
+![CAML Architecture](images/cnn.png)
+
+### 3. Retrieval-Augmented Generation (RAG)
+Four-stage pipeline for rare codes:
+1. LLM-based NER extraction
+2. Vector similarity search (FAISS, 95K+ ICD-10 codes)
+3. ICD-10 knowledge graph enrichment
+4. LLM final selection with reasoning
+
+![RAG Pipeline](images/rag.png)
+
+### 4. Ensemble Arbiter System
+Meta-model combining CNN + GPT-4o:
+1. Collect independent predictions
+2. Union candidate codes
+3. ICD-10 knowledge graph validation
+4. LLM arbiter selects final codes
+
+![Ensemble System](images/combined.png)
+
+---
+
 ## 📋 Complete Workflow Overview
 
 ### Data Pipeline from MIMIC-IV to Final Results
